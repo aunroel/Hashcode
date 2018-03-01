@@ -31,4 +31,6 @@ public class Car {
     public void setRides(ArrayList<Integer> rides) {
         this.rides = rides;
     }
+
+    public void addRide(Ride ride) {this.rides.add(ride.no);}
 }
