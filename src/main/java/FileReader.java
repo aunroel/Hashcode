@@ -8,7 +8,12 @@ import java.util.stream.Collectors;
 
 public class FileReader {
 
+    ArrayList<Car> vehicles = new ArrayList<>();
+    ArrayList<Ride> rides = new ArrayList<>();
     List<String> data = new ArrayList<String>();
+    int bonus;
+    int steps;
+    int rides;
 
     public void readFile(String filename) {
         try {
@@ -25,7 +30,24 @@ public class FileReader {
 
         for (int i = 0; i < data.size(); i++) {
             String[] lineAsArray = data.get(i).split(" ");
-                        
+
+            if (i == 0) {
+                // hardcode, maybe change later TODO
+                int[][] cityMap = new int[Integer.parseInt(lineAsArray[0])][Integer.parseInt(lineAsArray[1])];
+
+                for (int j = 0; j < Integer.parseInt(lineAsArray[2]); j++)
+                    vehicles.add(new Car());
+
+                rides = Integer.parseInt(lineAsArray[3]);
+
+                bonus = Integer.parseInt(lineAsArray[4]);
+
+                steps = Integer.parseInt(lineAsArray[5]);
+            } else {
+
+            }
+
+
         }
     }
 }
