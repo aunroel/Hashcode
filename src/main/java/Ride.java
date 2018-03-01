@@ -1,3 +1,6 @@
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * Created by Eliza on 01/03/2018.
  */
@@ -26,5 +29,7 @@ public class Ride {
         val = Math.abs(startPos[0] - endPos[0]) + Math.abs(startPos[1] - endPos[1]);
         return val;
     }
+
+
 
 }

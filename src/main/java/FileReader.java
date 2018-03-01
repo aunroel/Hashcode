@@ -63,4 +63,20 @@ public class FileReader {
 
         }
     }
+
+    public ArrayList<Car> getVehicles() {
+        return vehicles;
+    }
+
+    public ArrayList<Ride> getRides() {
+        return rides;
+    }
+
+    public int getSteps() {
+        return steps;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
 }
