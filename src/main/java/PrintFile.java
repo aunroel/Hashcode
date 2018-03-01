@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class PrintFile {
 
     public PrintFile(ArrayList<Car> allcars, String fileName) throws IOException {
-        File file = new File(fileName + ".txt");
+        File file = new File("src/main/resources/out/" + fileName + ".txt");
 
         FileWriter fileWriter = new FileWriter(file);
         PrintWriter printWriter = new PrintWriter(fileWriter);

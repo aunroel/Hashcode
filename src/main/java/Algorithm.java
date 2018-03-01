@@ -20,23 +20,17 @@ public class Algorithm {
         FileReader fr = new FileReader();
 
         switch (file) {
-            case 1: fr.readFile("a_example.in");
+            case 1: fr.readFile("in/a_example.in");
             break;
-            case 2: fr.readFile("b_should_be_easy.in");
+            case 2: fr.readFile("in/b_should_be_easy.in");
             break;
-            case 3: fr.readFile("c_no_hurry.in");
+            case 3: fr.readFile("in/c_no_hurry.in");
                 break;
-            case 4: fr.readFile("d_metropolis.in");
+            case 4: fr.readFile("in/d_metropolis.in");
                 break;
-            case 5: fr.readFile("e_high_bonus.in");
+            case 5: fr.readFile("in/e_high_bonus.in");
                 break;
         }
-//        //fr.readFile("a_example.in");
-//        fr.readFile("b_should_be_easy.in");
-//        //fr.readFile("c_no_hurry.in");
-//        //fr.readFile("d_metropolis.in");
-//        //fr.readFile("e_high_bonus.in");
-//        //fr.readFile("");
         fr.parseData();
         ch = new CarHandler(fr.getVehicles());
         steps = fr.getSteps();
@@ -55,10 +49,6 @@ public class Algorithm {
 
             assignRides(freeCars, rides, i);
 
-
-            //Get rides to assign
-
-            //Assign rides
         }
         try {
             PrintFile pf = new PrintFile(ch.all_cars, fileName);
