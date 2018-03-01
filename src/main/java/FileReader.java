@@ -10,10 +10,10 @@ public class FileReader {
 
     ArrayList<Car> vehicles = new ArrayList<>();
     ArrayList<Ride> rides = new ArrayList<>();
-    List<String> data = new ArrayList<String>();
+    List<String> data = new ArrayList<>();
     int bonus;
     int steps;
-    int rides;
+    int ridesAmount;
 
     public void readFile(String filename) {
         try {
@@ -38,13 +38,22 @@ public class FileReader {
                 for (int j = 0; j < Integer.parseInt(lineAsArray[2]); j++)
                     vehicles.add(new Car());
 
-                rides = Integer.parseInt(lineAsArray[3]);
+                ridesAmount = Integer.parseInt(lineAsArray[3]);
 
                 bonus = Integer.parseInt(lineAsArray[4]);
 
                 steps = Integer.parseInt(lineAsArray[5]);
             } else {
+                if (rides.size() <= ridesAmount) {
+                    rides.add(new Ride(
+                            i - 1,
+                            new int[]{Integer.parseInt(lineAsArray[0], Integer.parseInt(lineAsArray[1]))},
+                            new int[]{Integer.parseInt(lineAsArray[2]), Integer.parseInt(lineAsArray[3])},
+                            Integer.parseInt(lineAsArray[4]),
+                            Integer.parseInt(lineAsArray[5])
 
+                    ));
+                }
             }
 
 
