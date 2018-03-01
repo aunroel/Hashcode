@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class PrintFile {
 
-    public PrintFile(ArrayList<Car> allcars) throws IOException {
-        File file = new File("output.txt");
+    public PrintFile(ArrayList<Car> allcars, String fileName) throws IOException {
+        File file = new File(fileName + ".txt");
 
         FileWriter fileWriter = new FileWriter(file);
         PrintWriter printWriter = new PrintWriter(fileWriter);

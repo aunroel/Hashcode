@@ -15,7 +15,7 @@ public class Algorithm {
 
 
 
-    public Algorithm() {
+    public Algorithm(String fileName) {
 
         FileReader fr = new FileReader();
         //fr.readFile("a_example.in");
@@ -30,10 +30,10 @@ public class Algorithm {
         bonus = fr.getBonus();
         rides = fr.getRides();
 
-        run();
+        run(fileName);
     }
 
-    private void run() {
+    private void run(String fileName) {
 
         for (int i = 0; i < steps; i++) {
             ArrayList<Car> freeCars = ch.getFreeCars(i);
@@ -48,7 +48,7 @@ public class Algorithm {
             //Assign rides
         }
         try {
-            PrintFile pf = new PrintFile(ch.all_cars);
+            PrintFile pf = new PrintFile(ch.all_cars, fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
