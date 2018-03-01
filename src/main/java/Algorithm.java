@@ -15,15 +15,28 @@ public class Algorithm {
 
 
 
-    public Algorithm(String fileName) {
+    public Algorithm(int file, String fileName) {
 
         FileReader fr = new FileReader();
-        //fr.readFile("a_example.in");
-        fr.readFile("b_should_be_easy.in");
-        //fr.readFile("c_no_hurry.in");
-        //fr.readFile("d_metropolis.in");
-        //fr.readFile("e_high_bonus.in");
-        //fr.readFile("");
+
+        switch (file) {
+            case 1: fr.readFile("a_example.in");
+            break;
+            case 2: fr.readFile("b_should_be_easy.in");
+            break;
+            case 3: fr.readFile("c_no_hurry.in");
+                break;
+            case 4: fr.readFile("d_metropolis.in");
+                break;
+            case 5: fr.readFile("e_high_bonus.in");
+                break;
+        }
+//        //fr.readFile("a_example.in");
+//        fr.readFile("b_should_be_easy.in");
+//        //fr.readFile("c_no_hurry.in");
+//        //fr.readFile("d_metropolis.in");
+//        //fr.readFile("e_high_bonus.in");
+//        //fr.readFile("");
         fr.parseData();
         ch = new CarHandler(fr.getVehicles());
         steps = fr.getSteps();
