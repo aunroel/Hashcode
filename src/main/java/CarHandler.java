@@ -15,7 +15,7 @@ public class CarHandler {
         ArrayList<Car> freeCars = new ArrayList<>();
 
         for (Car car: all_cars) {
-            if (car.getTimeTillFinish() <= current_time) {
+            if (car.getTimeTillFinish() >= current_time) {
                 freeCars.add(car);
             }
 

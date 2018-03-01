@@ -84,12 +84,18 @@ public class Algorithm {
             for (Car car: free_cars) {
                 int considering = calculateCost(ride, car);
 
-                if (considering < temptative_cost) {
-                    temptative = car;
-                    temptative_cost =  considering;
-                }
+                int time_check = current_step + considering;
 
+                if (time_check >= ride.startTime) {
+                    if (considering < temptative_cost) {
+                        temptative = car;
+                        temptative_cost =  considering;
+                    }
+
+                }
             }
+
+
             temptative.addRide(ride);
             temptative.setCurrentPosition(ride.endPos);
             temptative.setTimeTillFinish(current_step + temptative_cost + ride.costOfRide);
@@ -101,6 +107,7 @@ public class Algorithm {
                 assignedRides) {
             rides.remove(ride);
         }
+
     }
 
     private int calculateCost(Ride ride, Car car) {
