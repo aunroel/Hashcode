@@ -1,35 +1,41 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FileReader {
 
     ArrayList<Car> vehicles = new ArrayList<>();
     ArrayList<Ride> rides = new ArrayList<>();
-    List<String> data = new ArrayList<>();
+    String[] data;
     int bonus;
     int steps;
     int ridesAmount;
 
     public void readFile(String filename) {
+        File file;
+
         try {
-            BufferedReader bufferedReade = Files.newBufferedReader(Paths.get(filename));
-            data = bufferedReade.lines().collect(Collectors.toList());
+            ClassLoader classLoader = getClass().getClassLoader();
+            file = new File(classLoader.getResource(filename).getFile());
+
+            String fileAsString = new String(Files.readAllBytes(file.toPath()));
+
+            data = fileAsString.split("\n");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void parseData() {
-        if (data.isEmpty())
+        if (data.length == 0)
             return;
 
-        for (int i = 0; i < data.size(); i++) {
-            String[] lineAsArray = data.get(i).split(" ");
+        for (int i = 0; i < data.length; i++) {
+            String[] lineAsArray = data[i].split(" ");
 
             if (i == 0) {
                 // hardcode, maybe change later TODO
@@ -47,7 +53,7 @@ public class FileReader {
                 if (rides.size() <= ridesAmount) {
                     rides.add(new Ride(
                             i - 1,
-                            new int[]{Integer.parseInt(lineAsArray[0], Integer.parseInt(lineAsArray[1]))},
+                            new int[]{Integer.parseInt(lineAsArray[0]), Integer.parseInt(lineAsArray[1])},
                             new int[]{Integer.parseInt(lineAsArray[2]), Integer.parseInt(lineAsArray[3])},
                             Integer.parseInt(lineAsArray[4]),
                             Integer.parseInt(lineAsArray[5])
